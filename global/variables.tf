@@ -16,3 +16,22 @@ variable kms_regions {
   type        = "list"
   default     = ["ap-south-1", "ap-southeast-1"]
 }
+variable tf_user {
+  description = "User which connect to aws"
+  default     = "terraform"
+}
+variable tf_user_kms_operations {
+  description = "kms permission to terraform user"
+  type        = "list"
+  default = [
+    "Decrypt",
+    "Encrypt",
+    "GenerateDataKey",
+    "GenerateDataKeyWithoutPlaintext",
+    "ReEncryptFrom",
+    "ReEncryptTo",
+    "CreateGrant",
+    "RetireGrant",
+    "DescribeKey"
+  ]
+}
