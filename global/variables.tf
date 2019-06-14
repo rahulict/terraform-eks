@@ -4,7 +4,7 @@ variable region {
 
 ## Used in global/s3 ##
 variable tf_bucket {
-  default     = "tf-state-key-${data.aws_caller_identity.current.account_id}"
+  default     = "tf-state-key"
   description = "s3 bucket to store tf state files"
 }
 variable sse_algorithm {
