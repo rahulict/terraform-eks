@@ -1,5 +1,5 @@
 resource aws_s3_bucket tf-state-key {
-  bucket = "${var.tf_bucket}-${data.aws_caller_identity.current.account_id}"
+  bucket = "${var.tf_bucket}"
   versioning {
     enabled = true
   }
