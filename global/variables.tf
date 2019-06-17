@@ -3,13 +3,17 @@ variable region {
   default = "ap-south-1"
 }
 
-variable account_id {
+variable account_number {
   description = "aws account id"
 }
 
 variable tf_bucket {
   default     = "tf-state-key"
   description = "s3 bucket to store tf state files"
+}
+
+variable tf_dynamodb_table {
+  default = "tf-lock-table"
 }
 
 variable sse_algorithm {
