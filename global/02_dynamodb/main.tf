@@ -1,3 +1,14 @@
+## BACKEND ##
+terraform {
+ backend "s3" {}
+}
+
+## PROVIDERS ##
+provider aws {
+  region = "${var.region}"
+}
+
+## MAIN ##
 resource aws_dynamodb_table "tf-lock-table" {
   name     = "tf-lock-table-${var.account_number}"
   hash_key = "LockID"
@@ -9,4 +20,9 @@ resource aws_dynamodb_table "tf-lock-table" {
 
   read_capacity  = 5
   write_capacity = 5
+}
+
+## OUTPUT ##
+output dynamodb_arn {
+  value = "${aws_dynamodb_table.tf-lock-table.arn}"
 }
