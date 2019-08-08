@@ -1,3 +1,9 @@
+## PROVIDERS ##
+provider aws {
+  region = "${var.region}"
+}
+
+## MAIN ##
 resource aws_s3_bucket tf-state-key {
   bucket = "${var.tf_bucket}"
   versioning {
@@ -15,6 +21,7 @@ resource aws_s3_bucket tf-state-key {
   }
 }
 
+## OUTPUTS ##
 output terraform_bucket_name {
   value = "${aws_s3_bucket.tf-state-key.bucket}"
 }
