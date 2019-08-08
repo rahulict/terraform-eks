@@ -1,3 +1,8 @@
+## PROVIDERS ##
+provider aws {
+  region = "${var.region}"
+}
+
 resource aws_kms_key kms_key {
   description = "SSE KMS CMK in ${var.region}"
   is_enabled  = true
