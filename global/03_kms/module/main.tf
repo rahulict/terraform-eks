@@ -9,6 +9,6 @@ resource aws_kms_alias kms_alias {
 resource "aws_kms_grant" "kms_tf_grants" {
   name              = "kms_tf_grants"
   key_id            = "${aws_kms_key.kms_key.key_id}"
-  grantee_principal = "arn:aws:iam::148993112359:user/${var.tf_user}"
+  grantee_principal = "arn:aws:iam::${var.account_number}:user/${var.tf_user}"
   operations        = "${var.tf_user_kms_operations}"
 }

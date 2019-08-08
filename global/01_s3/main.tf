@@ -14,3 +14,7 @@ resource aws_s3_bucket tf-state-key {
     prevent_destroy = true
   }
 }
+
+output terraform_bucket_name {
+  value = "${aws_s3_bucket.tf-state-key.bucket}"
+}

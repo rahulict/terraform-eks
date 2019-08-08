@@ -7,7 +7,7 @@ source ../../env.sh
 terraform init \
 	-backend=true \
 	-backend-config="bucket=${TF_VAR_tf_bucket}" \
-	-backend-config="key=global/dynamodb/terraform.tfstate" \
+	-backend-config="key=global/02_dynamodb/terraform.tfstate" \
 	-backend-config="region=${TF_VAR_region}"
 
 terraform plan -out ./plan.out
