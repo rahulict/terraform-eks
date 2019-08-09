@@ -16,7 +16,9 @@ terraform init \
 	-backend=true \
 	-backend-config="bucket=${TF_VAR_tf_bucket}" \
 	-backend-config="key=global/dynamodb/terraform.tfstate" \
-	-backend-config="region=${TF_VAR_region}"
+	-backend-config="profile=${TF_VAR_tf_profile}" \
+	-backend-config="region=${TF_VAR_region}" \
+	-backend-config="encrypt=true"
 
 if test $1 == "plan"
 then

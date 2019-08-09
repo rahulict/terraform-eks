@@ -1,6 +1,7 @@
 ## PROVIDERS ##
 provider aws {
   region = "${var.region}"
+  profile = "${var.tf_profile}"
 }
 
 resource aws_kms_key kms_key {

@@ -3,6 +3,8 @@ variable region {
   default = "ap-south-1"
 }
 
+variable "tf_profile" {}
+
 variable account_number {
   description = "aws account id"
 }

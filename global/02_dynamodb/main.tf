@@ -1,11 +1,12 @@
 ## BACKEND ##
 terraform {
- backend "s3" {}
+  backend "s3" {}
 }
 
 ## PROVIDERS ##
 provider aws {
-  region = "${var.region}"
+  region  = "${var.region}"
+  profile = "${var.tf_profile}"
 }
 
 ## MAIN ##

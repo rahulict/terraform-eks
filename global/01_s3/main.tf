@@ -1,6 +1,7 @@
 ## PROVIDERS ##
 provider aws {
-  region = "${var.region}"
+  region  = "${var.region}"
+  profile = "${var.tf_profile}"
 }
 
 ## MAIN ##
