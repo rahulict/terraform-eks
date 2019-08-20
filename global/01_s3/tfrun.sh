@@ -10,6 +10,8 @@ fi
 
 set -x # Echo everything
 
+git pull origin master
+
 source ../../env.sh
 
 if test -e .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
@@ -51,3 +53,7 @@ then
 		cp -a terraform.tfstate .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
 	fi
 fi
+
+git status
+
+set +x && echo && read -p 'Please make sure to run "git push origin master" in case of any change. press ENTER to exit!! '
