@@ -12,6 +12,14 @@ set -x # Echo everything
 
 source ../../env.sh
 
+if test -e .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
+then
+	if ! cmp --silent .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number} terraform.tfstate
+	then
+		cp -a .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number} terraform.tfstate
+	fi
+fi
+
 terraform init
 
 if test $1 == "plan"
@@ -33,5 +41,13 @@ then
 		terraform destroy --auto-approve
 	else
 		terraform destroy
+	fi
+fi
+
+if test -e terraform.tfstate
+then
+	if ! cmp --silent terraform.tfstate .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
+	then
+		cp -a terraform.tfstate .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
 	fi
 fi
