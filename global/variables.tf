@@ -23,10 +23,9 @@ variable sse_algorithm {
   description = "server side encryption used by s3 bucket"
 }
 
-variable kms_regions {
+variable kms_other_region {
   description = "defines region in which to create kms keys"
-  type        = "list"
-  default     = ["ap-south-1", "ap-southeast-1"]
+  default     = "ap-south-1"
 }
 
 variable tf_user {

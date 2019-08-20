@@ -6,13 +6,13 @@ terraform {
 ## MAIN ##
 module kms1 {
   source         = "./module"
-  region         = "${var.kms_regions[0]}"
+  region         = "${var.region}"
   account_number = "${var.account_number}"
   tf_profile     = "${var.tf_profile}"
 }
 module kms2 {
   source         = "./module"
-  region         = "${var.kms_regions[1]}"
+  region         = "${var.kms_other_region}"
   account_number = "${var.account_number}"
   tf_profile     = "${var.tf_profile}"
 }
