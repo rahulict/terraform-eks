@@ -17,9 +17,9 @@ resource aws_s3_bucket tf-state-key {
       }
     }
   }
-  lifecycle {
-    prevent_destroy = true
-  }
+#  lifecycle {
+#    prevent_destroy = true
+#  }
 }
 
 ## OUTPUTS ##

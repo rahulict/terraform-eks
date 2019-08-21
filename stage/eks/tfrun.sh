@@ -10,13 +10,12 @@ fi
 
 set -x # Echo everything
 
-#rn:aws:kms:ap-south-1:${TF_VAR_account_number}:kms-ap-south-1
 source ../../env.sh
+	#-backend-config="kms_key_id=${TF_VAR_tf_kms_key_arn}" \
 terraform init \
 	-backend=true \
 	-backend-config="bucket=${TF_VAR_tf_bucket}" \
 	-backend-config="key=stage/eks/terraform.tfstate" \
-	-backend-config="kms_key_id=${TF_VAR_tf_kms_key_arn}" \
 	-backend-config="profile=${TF_VAR_tf_profile}" \
 	-backend-config="region=${TF_VAR_region}" \
 	-backend-config="encrypt=true"
