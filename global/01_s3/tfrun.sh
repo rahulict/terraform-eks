@@ -14,11 +14,11 @@ git pull origin master
 
 source ../../env.sh
 
-if test -e .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
+if test -e .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}.${TF_VAR_region}
 then
-	if ! cmp --silent .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number} terraform.tfstate
+	if ! cmp --silent .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}.${TF_VAR_region} terraform.tfstate
 	then
-		cp -a .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number} terraform.tfstate
+		cp -a .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}.${TF_VAR_region} terraform.tfstate
 	fi
 fi
 
@@ -48,9 +48,9 @@ fi
 
 if test -e terraform.tfstate
 then
-	if ! cmp --silent terraform.tfstate .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
+	if ! cmp --silent terraform.tfstate .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}.${TF_VAR_region}
 	then
-		cp -a terraform.tfstate .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}
+		cp -a terraform.tfstate .existing.terraform.tfstate/terraform.tfstate.${TF_VAR_account_number}.${TF_VAR_region}
 	fi
 fi
 
